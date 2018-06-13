@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+
+import { IQuote } from '../../data/quote.interface';
 import { IQuoteGroup } from '../../data/quoteGroup.interface';
+import { QuotesProvider } from '../../providers/quotes/quotes';
 
 /**
  * Generated class for the QuotesPage page.
@@ -16,21 +19,45 @@ import { IQuoteGroup } from '../../data/quoteGroup.interface';
 })
 export class QuotesPage implements OnInit {
 
-  public quoteGroup: IQuoteGroup;
+  quoteGroup: IQuoteGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private alertController: AlertController,
+    private quotesProvider: QuotesProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuotesPage');
   }
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.quoteGroup = this.navParams.data;
   }
 
 
-  onAddToFavorite() {
+  onAddToFavorite(selectedQuote: IQuote) {
+    const alert = this.alertController.create({
+      title: 'Add Quote',
+      subTitle: 'Are you sure?',
+      message: 'Are you sure you want to add this quote?',
+      buttons: [
+        {
+          text: 'Ok, go ahead',
+          handler: () => {
+            this.quotesProvider.addQuotesToFavorite(selectedQuote);
+          }
+        },
+        {
+          text: 'No, I\'ve changed my mind',
+          role: 'cancel',
+          handler: () => {
+            console.log('Canceled');
+          }
+        }
+      ]
+    });
 
+    alert.present();
   }
 }

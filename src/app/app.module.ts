@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { TabsPage } from '../pages/tabs/tabs';
 
+import { QuotePage } from '../pages/quote/quote';
+import { TabsPage } from '../pages/tabs/tabs';
+import { QuotesProvider } from '../providers/quotes/quotes';
 import { MyApp } from './app.component';
 
 
@@ -14,7 +16,7 @@ import { MyApp } from './app.component';
     // FavoritesPage,
     // LibraryPage,
     // QuotesPage,
-    // QuotePage,
+    QuotePage,
     // SettingsPage,
     TabsPage
   ],
@@ -28,14 +30,15 @@ import { MyApp } from './app.component';
     // FavoritesPage,
     // LibraryPage,
     // QuotesPage,
-    // QuotePage,
+    QuotePage,
     // SettingsPage,
     TabsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    QuotesProvider
   ]
 })
 export class AppModule {}
