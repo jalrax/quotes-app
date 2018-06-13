@@ -1,3 +1,22 @@
 page-quotes {
+  .quote {
+    &:before {
+      content: '\201C';
+    }
+    &:after {
+      content: '\201D';
+    }
+  }
 
+  .author {
+    color: #ccc;
+    text-align: right;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+
+    &:before {
+      content: '- ';
+    }
+  }
 }

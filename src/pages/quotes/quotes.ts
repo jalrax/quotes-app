@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IQuoteGroup } from '../../data/quoteGroup.interface';
 
 /**
  * Generated class for the QuotesPage page.
@@ -13,7 +14,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-quotes',
   templateUrl: 'quotes.html',
 })
-export class QuotesPage {
+export class QuotesPage implements OnInit {
+
+  public quoteGroup: IQuoteGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -22,4 +25,12 @@ export class QuotesPage {
     console.log('ionViewDidLoad QuotesPage');
   }
 
+  public ngOnInit(): void {
+    this.quoteGroup = this.navParams.data;
+  }
+
+
+  onAddToFavorite() {
+
+  }
 }

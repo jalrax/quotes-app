@@ -3,14 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { FavoritesPage } from '../pages/favorites/favorites';
+import { TabsPage } from '../pages/tabs/tabs';
 
 import { MyApp } from './app.component';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    FavoritesPage
+    // FavoritesPage,
+    // LibraryPage,
+    // QuotesPage,
+    // QuotePage,
+    // SettingsPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -19,7 +25,12 @@ import { MyApp } from './app.component';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    FavoritesPage
+    // FavoritesPage,
+    // LibraryPage,
+    // QuotesPage,
+    // QuotePage,
+    // SettingsPage,
+    TabsPage
   ],
   providers: [
     StatusBar,
