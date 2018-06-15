@@ -18,14 +18,10 @@ import quotes from '../../data/quotes';
 })
 export class LibraryPage implements OnInit {
 
-  public quoteCollection: IQuoteGroup[];
-  public quotesPage = 'QuotesPage';
+  quoteCollection: IQuoteGroup[];
+  quotesPage = 'QuotesPage';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  public ionViewDidLoad() {
-    console.log('ionViewDidLoad LibraryPage');
   }
 
   public ngOnInit(): void {

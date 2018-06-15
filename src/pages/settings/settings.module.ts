@@ -7,7 +7,7 @@ import { SettingsPage } from './settings';
     SettingsPage,
   ],
   imports: [
-    IonicPageModule.forChild(SettingsPage),
+    IonicPageModule.forChild(SettingsPage)
   ],
 })
 export class SettingsPageModule {

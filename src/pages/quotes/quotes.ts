@@ -23,12 +23,8 @@ export class QuotesPage implements OnInit {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    private alertController: AlertController,
+    private alertCtrl: AlertController,
     private quotesProvider: QuotesProvider) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad QuotesPage');
   }
 
   ngOnInit(): void {
@@ -36,8 +32,8 @@ export class QuotesPage implements OnInit {
   }
 
 
-  onAddToFavorite(selectedQuote: IQuote) {
-    const alert = this.alertController.create({
+  onAddToFavourites(selectedQuote: IQuote) {
+    const alert = this.alertCtrl.create({
       title: 'Add Quote',
       subTitle: 'Are you sure?',
       message: 'Are you sure you want to add this quote?',
@@ -45,7 +41,7 @@ export class QuotesPage implements OnInit {
         {
           text: 'Ok, go ahead',
           handler: () => {
-            this.quotesProvider.addQuotesToFavorite(selectedQuote);
+            this.quotesProvider.addQuoteToFavourite(selectedQuote);
           }
         },
         {
@@ -59,5 +55,13 @@ export class QuotesPage implements OnInit {
     });
 
     alert.present();
+  }
+
+  onRemoveFromFavourites(quote: IQuote) {
+    this.quotesProvider.removeQuoteFromFavourite(quote);
+  }
+
+  isFavourite(quote: IQuote) {
+    return this.quotesProvider.isQuoteFavourite(quote);
   }
 }

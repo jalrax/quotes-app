@@ -15,8 +15,8 @@ import { IonicPage, NavController } from 'ionic-angular';
 })
 export class TabsPage {
 
-  public favoritesPage = 'FavoritesPage';
-  public libraryPage = 'LibraryPage';
+  favouritesPage = 'FavouritesPage';
+  libraryPage = 'LibraryPage';
 
 
   constructor(public navCtrl: NavController) {}

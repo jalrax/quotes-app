@@ -7,7 +7,7 @@ import { LibraryPage } from './library';
     LibraryPage,
   ],
   imports: [
-    IonicPageModule.forChild(LibraryPage),
+    IonicPageModule.forChild(LibraryPage)
   ],
 })
 export class LibraryPageModule {

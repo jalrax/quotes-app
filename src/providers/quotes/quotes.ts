@@ -11,22 +11,26 @@ import { IQuote } from '../../data/quote.interface';
 @Injectable()
 export class QuotesProvider {
 
-  private favoriteQuotes: IQuote[] = [];
+  private favouriteQuotes: IQuote[] = [];
 
-  addQuotesToFavorite(quote: IQuote) {
-    this.favoriteQuotes.push(quote);
-    console.log(this.favoriteQuotes, 'log');
+  addQuoteToFavourite(quote: IQuote) {
+    this.favouriteQuotes.push(quote);
   }
 
-  removeQuotesToFavorite(quote: IQuote) {
-    const position = this.favoriteQuotes.findIndex((quoteEl: IQuote) => {
+  removeQuoteFromFavourite(quote: IQuote) {
+    const position = this.favouriteQuotes.findIndex((quoteEl: IQuote) => {
       return quoteEl.id === quote.id;
     });
-    this.favoriteQuotes.splice(position, 1);
+    this.favouriteQuotes.splice(position, 1);
   }
 
-  getFavoriteQuotes() {
-    return this.favoriteQuotes.slice();
+  getFavouriteQuotes() {
+    return this.favouriteQuotes.slice();
   }
 
+  isQuoteFavourite(quote: IQuote) {
+    return this.favouriteQuotes.find((quoteEl: IQuote) => {
+      return quoteEl.id === quote.id;
+    });
+  }
 }

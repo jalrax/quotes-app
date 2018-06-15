@@ -15,6 +15,9 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class QuotePage {
 
+  person: string;
+  text: string;
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private viewCtrl: ViewController) {
@@ -22,10 +25,12 @@ export class QuotePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuotePage');
+    this.person = this.navParams.get('person');
+    this.text = this.navParams.get('text');
   }
 
-  onClose() {
-    this.viewCtrl.dismiss();
+  onClose(remove = false) {
+    this.viewCtrl.dismiss(remove);
   }
 
 }
